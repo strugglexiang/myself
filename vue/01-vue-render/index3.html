@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js" charset="utf-8"></script>
+  <div id="app">
+    <!-- 文本插值 -->
+    {{ msg }}
+    <!-- 纯HTML插值 -->
+    <div v-html='h'></div>
+    <!-- 属性中插值 -->
+    <div v-bind:id='msg'>属性</div>
+    <!-- 添加或删除布尔类型的属性 -->
+    <button v-bind:disabled='isDisabled'>按钮</button>
+    <!-- 使用JavaScript表达式 -->
+    {{ number + 1 }}
+    {{ ok ? 'YES' : 'NO' }}
+    {{ msg.split('').reverse().join('') }}
+    <!-- 字符串和值拼接 -->
+    <div v-bind:id="'list-' + id">div</div>
+    <!-- 这是语句，不是表达式 -->
+    <!-- {{ var a = 1; }} -->
+    <!-- 流程控制语句，可以使用三元代替 -->
+    <!-- {{ if (ok) { return msg } }} -->
+    <!-- 指令 -->
+    <p v-if="seen">显示</p>
+    <!-- 指令带参数，动态绑定href属性 -->
+    <a v-bind:href="url">百度</a>
+    <!-- 指令带参数，绑定onclick事件 -->
+    <a v-on:click="doSomething">点击</a>
+    <!-- 修饰符 -->
+    <!-- prevent相当于在事件里面会帮我们调用event.preventDefault(); -->
+    <form v-on:submit.prevent='onSubmit'>
+      <input type="submit" value="提交">
+    </form>
+    <!-- 属性绑定缩写 -->
+    <a :href="url">百度</a>
+    <!-- 事件绑定的缩写 -->
+    <a @click="doSomething">点击</a>
+  </div>
+  <script>
+    var vm = new Vue({
+      // 挂载DOM
+      el: '#app',
+      // 存数据
+      data: {
+        msg: 'hi',
+        h: '<h1>Hello</h1>',
+        isDisabled: true,
+        number: 1,
+        ok: true,
+        id: 3,
+        seen: true,
+        url: 'http://www.baidu.com'
+      },
+      // 存方法
+      methods: {
+        doSomething() {
+          console.log('do something');
+        },
+        onSubmit() {
+          console.log('submit');
+        }
+      }
+    })
+  </script>
+</body>
+</html>

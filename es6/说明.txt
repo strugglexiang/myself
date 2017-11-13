@@ -1,0 +1,13 @@
+入门站点：http://es6.ruanyifeng.com/#docs/function
+
+一.引言
+我们平时写的js都是基于es5的规定，es6是新特性和语法，区别就是丰富了功能，但是浏览器还不支持
+
+
+二.重要特性
+
+
+
+迭代器
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Iterators_and_Generators
+

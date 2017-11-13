@@ -1,0 +1,20 @@
+
+一.安装koa
+npm i -Sor-G koa
+
+学习文档
+https://github.com/guo-yu/koa-guide
+路由中间件https://github.com/alexmingoia/koa-router
+npm i -S koa-router
+
+二.koa生成器
+http://blog.csdn.net/ansu2009/article/details/53884287
+npm install -g koa-generator  
+koa2 -h
+koa2 -e 文件夹名    生成器用ejs
+
+
+三.koa操作数据库
+mongose模块
+https://github.com/ivonzhang/koa2-mongodb-server
+https://github.com/ivonzhang/koa2-mongodb-server

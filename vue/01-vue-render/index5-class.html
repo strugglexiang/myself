@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+    }
+    .active {
+      border: 1px solid red;
+    }
+    .text-danger {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+    <script src="vue.js" charset="utf-8"></script>
+    <div id="app">
+      <!-- 对象的写法，如果isActive为true，则加上active样式，否则移除样式 -->
+      <div :class="{ active: isActive }"></div>
+      <div :class="{ active: isActive, 'text-danger': hasError }"> 信息 </div>
+      <div :class="classObject"> 错误信息 </div>
+      <!-- 数组的写法 -->
+      <div :class="[activeClass, errorClass]">数组类型样式</div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          isActive: true,
+          hasError: true,
+          classObject: {
+            active: true,
+            'text-danger': false
+          },
+          activeClass: 'active',
+          errorClass: 'text-danger'
+        }
+      })
+    </script>
+</body>
+</html>

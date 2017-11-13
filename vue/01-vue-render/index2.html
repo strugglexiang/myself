@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js" charset="utf-8"></script>
+  <!-- V -->
+  <div id="app">
+    {{ message }}
+  </div>
+  <script>
+    // M
+    // var data = {
+    //   message: 'hi'
+    // };
+    // VM
+    var app = new Vue({
+      //选项
+      el: '#app', //实例挂载到id为app的这个DOM元素身上
+      template: '<div>{{ message }}模板内容</div>',
+      data: {
+        message: 'hi'
+      },
+      // 生命周期的方法
+      beforeCreate() {
+        console.log('beforeCreate');
+      },
+      created() {
+        // 请求数据
+        /*
+        axios.get().then(res => {
+          this.data = res.data;
+        })
+        */
+        console.log('created');
+      },
+      beforeMount() {
+        console.log('beforeMount');
+      },
+      mounted() {
+        console.log('mounted');
+      },
+      beforeUpdate() {
+        console.log('before update');
+      },
+      updated() {
+        console.log('updated');
+      },
+      beforeDestroy() {
+        console.log('before destroy');
+      },
+      destroyed() {
+        console.log('destroyed');
+      }
+    });
+    console.log(app.$el);
+    // app.$mount('#app');
+    // console.log(app.message === data.message);
+    // console.log(app.$data);//引用的就是data
+    // data.message = 'hello';//修改data同时会修改app里面的data
+  </script>
+</body>
+</html>

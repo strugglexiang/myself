@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+		<style type="text/css">
+			 *{
+			 	padding: 0px;
+			 	margin: 0px;
+			 }
+			body{
+				height: 3000px;
+			}
+			h1{
+				position: fixed;
+			}
+			h2{
+				position: fixed;
+				top: 100px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<h1>1</h1>
+		<h2>1</h2>
+		<script type="text/javascript">
+		   //世纪使用还要使用函数节流
+			$(window).scroll(()=>{
+				 //文档总高度
+				 var allHeight=$(document).height();
+//				 console.log(allHeight);
+                //卷动值
+                var scrollTop=$(document).scrollTop();
+                $("h1").html(""+scrollTop)
+                $("h2").html(""+allHeight)
+                if(allHeight == scrollTop+$(window).height()){
+                	 alert("滚动到底部了")
+                }
+			})
+		</script>
+	</body>
+</html>

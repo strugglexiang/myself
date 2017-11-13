@@ -1,0 +1,200 @@
+1.表单相关
+文本框
+v-model="msg"
+v-model命令绑定数据，将data里面的msg和input框的value值动态绑定
+
+复选框
+v-model="check"
+将input框的value值和data里面的check绑定，check取值为布尔，check=true表示被选中
+
+单选框
+v-model="picked"
+不同单选框都要绑定相同的数据，这样不同单选框就只能选一个了，几个单选框共同决定一个数据
+绑定data里面的picked值,picked值与哪个value相同，就带表选了哪个,
+同样,选择哪个input，picked值也进行相应的改变
+
+数字修饰符
+v-model.number=age
+除了将value值与age绑定
+如果想自动将用户的输入值转为 Number 类型 (如果原值的转换结果为 NaN 则返回原值)，
+可以添加一个修饰符 number 给 v-model 来处理输入值：
+
+空格修饰符
+除了绑定数据
+如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入：
+<input v-model.trim="msg">
+
+
+
+2.指令
+绑定事件
+v-on:事件名  缩写 @
+
+绑定属性
+v-bind    缩写：
+
+显示相关
+v-if=   数据值为 布尔，为真则显示，为false则不出现在文档
+v-show 数据值为布尔，为真则display相对应，会在文档中有标签
+
+条件渲染
+
+
+3.生命周期
+app.$data Vue 实例观察的数据对象。Vue 实例代理了对其 data 对象属性的访问。
+vm.$el Vue 实例使用的根 DOM 元素。
+生命周期方法直接写在和data,methods相同的属性中
+      // 生命周期的方法
+      beforeCreate() {
+        console.log('beforeCreate');
+      },
+      created() {
+        // 请求数据
+        /*
+        axios.get().then(res => {
+          this.data = res.data;
+        })
+        */
+        console.log('created');
+      },
+      beforeMount() {
+        console.log('beforeMount');
+      },
+      mounted() {
+        console.log('mounted');
+      },
+      beforeUpdate() {
+        console.log('before update');
+      },
+      updated() {
+        console.log('updated');
+      },
+      beforeDestroy() {
+        console.log('before destroy');
+      },
+      destroyed() {
+        console.log('destroyed');
+      }
+      
+ 4.插值
+   <!-- 文本插值 -->
+    {{ msg }}
+    
+    <!-- 纯HTML插值 -->
+    <div v-html='h'></div>
+    
+    !-- 属性中插值 -->
+    <div v-bind:id='msg'>属性</div>  
+    
+     <!-- 添加或删除布尔类型的属性 -->
+    <button v-bind:disabled='isDisabled'>按钮</button>
+    
+    <!-- 字符串和值拼接 -->
+    <div v-bind:id="'list-' + id">div</div>
+    
+      <!-- 使用JavaScript表达式 -->
+    {{ number + 1 }}
+    {{ ok ? 'YES' : 'NO' }}
+    {{ msg.split('').reverse().join('') }}
+    
+     
+     <p v-if="seen">显示</p>
+     
+    <!-- 指令带参数，动态绑定href属性 -->
+    <a v-bind:href="url">百度</a>
+    
+    <!-- 指令带参数，绑定onclick事件 -->
+    <a v-on:click="doSomething">点击</a>
+    
+    <!-- 修饰符 -->
+    <!-- prevent相当于在事件里面会帮我们调用event.preventDefault(); -->
+    <form v-on:submit.prevent='onSubmit'>
+      <input type="submit" value="提交">
+    </form>
+    
+    <!-- 属性绑定缩写 -->
+    <a :href="url">百度</a>
+    
+    <!-- 事件绑定的缩写 -->
+    <a @click="doSomething">点击</a>
+
+5.存放所有的计算属性
+  // 存放所有的计算属性,就是一个方法，不过使用的时候和属性一样
+      computed: {
+        sumA() {
+          return this.priceA * this.numberA;
+        },
+        sumB() {
+          return this.priceB * this.numberB;
+        }
+        // sum() {
+        //   return this.sumA + this.sumB;
+        // }
+      }
+      
+ 6.绑定样式
+    <div id="app">
+      <!-- 对象的写法，如果isActive为true，则加上active样式，否则移除样式 -->
+      <div :class="{ active: isActive }"></div>
+      <div :class="{ active: isActive, 'text-danger': hasError }"> 信息 </div>
+      <div :class="classObject"> 错误信息 </div>
+      <!-- 数组的写法 -->
+      <div :class="[activeClass, errorClass]">数组类型样式</div>
+    </div>
+    
+        var vm = new Vue({
+        el: '#app',
+        data: {
+          isActive: true,
+          hasError: true,
+          classObject: {
+            active: true,
+            'text-danger': false
+          },
+          activeClass: 'active',
+          errorClass: 'text-danger'
+        }
+      })      
+
+7.条件渲染
+  <div id="app">
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        type: 'A'
+      }
+    })
+  </script>
+  
+  8.列表渲染
+    <div id="app">
+    <ul>
+      <li v-for="(text, index) in list" :key="'list'+index">
+        {{ index }} - {{ text }}
+      </li>
+    </ul>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: [
+          'A','B','C'
+        ]
+      }
+    })
+  </script>

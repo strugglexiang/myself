@@ -1,0 +1,36 @@
+jquery方法获得计算后样式
+$("选择器").css("查询属性")；
+
+
+
+原生的获取样式
+dom.style.width  只能获得标签里面的行内style样式
+一般情况
+getComputedStyle(dom).属性   getComputedStyle(dom)[属性];    这个经测试，驼峰和-都识别
+ //上面写的IE6,7,8全部视为错误
+    alert(oDiv.currentStyle.width);
+    alert(oDiv.currentStyle.height);
+    alert(oDiv.currentStyle.paddingTop);
+    alert(oDiv.currentStyle['paddingTop']);
+    
+    dom.currentstyle[]只识别驼峰
+
+
+function getmystyle(obj,property){
+		   	   if(window.getComputedStyle){
+		   	   	    property=property.replace("/[A-Z]/g",function(match){
+		   	   	    	 return "-"+match.toLowerCase();
+		   	   	    });
+		   	   	    return window.getComputedStyle(obj)[property];
+		   	   }
+		   	   else{
+		   	   	  property=property.replace("/-[a-z]/g",function(match,$1){
+		   	   	  	    return $1.toUpperCase();
+		   	   	  });
+		   	   	  return obj.currentStyle[property];
+		   	   }
+}
+
+
+
+

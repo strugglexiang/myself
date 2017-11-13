@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js" charset="utf-8"></script>
+  <div id="app">
+    <!-- 单行文本 -->
+    <input v-model="message" type="text" value="edit me">
+    {{ message }}
+    <!-- 复选框 -->
+    <input type="checkbox" v-model="checked">
+    {{ checked }}
+    <!-- 单选按钮 -->
+    <input type="radio" value="One" v-model="picked"> One
+    <br>
+    <input type="radio" value="Two" v-model="picked"> Two
+    {{ picked }}
+    <!-- 数字修饰符 -->
+    <input type="number" v-model.number="age">
+    <!-- 去除空格 -->
+    <input type="text" v-model.trim="msg">
+    {{msg}}
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'hi',
+        checked: true,
+        picked: 'Two',
+        age: 18,
+        msg: 'hello'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原生js获取屏幕的宽高</title>
+		<style type="text/css">
+		  *{
+		  	padding: 0px;
+		  	margin: 0px;
+		  }
+		  body{
+		  	 width: 100px;
+		  	 height: 1000px;
+		  }
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+//	        body宽高
+		    var height=document.body.clientHeight;
+		    var width=document.body.clientWidth;
+		    alert("width"+width);
+		    alert('height'+height);
+		    
+               //当前文档可视高度和文档可视宽度
+//          document.documentElement.clientWidth ;
+//          document.documentElement.clientHeight ;
+            console.log(document.documentElement.clientWidth);
+            console.log(document.documentElement.clientHeight);
+            
+		</script>
+	</body>
+</html>

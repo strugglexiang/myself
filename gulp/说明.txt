@@ -1,0 +1,15 @@
+1.他人博客功能示列
+http://www.cnblogs.com/96weibin/p/7774585.html
+
+
+
+介绍
+基于流的自动化构建工具
+构建：压缩，改名，删除文件，热加载，预编译等等更多（功能主要是看插件，而不是看gulp本身)
+
+
+插件
+代码格式检查（eslint, jshint), concat文件合并，plumber错误抑制，拷贝合并功能gulp.src([]).pipe(gulp.dest()) 
+livereload实时更新页面，autoprefixer自动给css加前缀（可以根据你需要兼容的浏览器版本）
+
+任务：老师的拷贝过来。

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				border: 1px solid #ccc;
+				background: url(img/huaji.jpg) no-repeat 50% 50%;
+				/*先处置，后水平*/
+				/*background-position: 50% 50%;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<h1></h1>
+		<script type="text/javascript">
+		    $("h1").html($("div").css("background"))  
+		</script>
+	</body>
+</html>

@@ -1,0 +1,102 @@
+1.transition
+
+transiton:过渡，平滑的改变css的值，实现动画效果
+transiton有一下属性和值：
+
+transition-property :* //指定过渡的性质，比如transition-property:backgrond 就是指backgound参与这个过渡
+transition-duration:*//指定这个过渡的持续时间
+transition-delay:* //延迟过渡时间
+transition-timing-function:*//指定过渡类型，有ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier
+
+
+过渡类型名词解释：
+linear:线性改变，匀速
+ease:缓冲效果
+ease-in 先快后慢   
+ease-out 嫌慢后快
+ease-in-out 前后快，中间慢
+
+记忆：in 进入（开始）的时候快   out（结束）的时候快。
+
+一般说来写在一起
+transition:all 1s linear 0s;延迟可不省略
+
+2.transform:变形,任何变型都能够被过度。
+2D变形：
+旋转：rotate(45deg) 旋转45度   度数可以为正也可以为负
+缩放：scale(2) scale(1,2) scaleX(2) scaleY(2) 前一个表示横向缩放倍数，后一个表示纵向缩放倍数
+斜切：skew(30deg,20deg) skewX(20deg) skewY(40deg) 前一个横向斜切度数，后一个纵向斜切度数
+平面位移：translate(10px,20px)  translateX(10px) translateY(20px) x轴位移，y轴位移
+
+
+3D变形
+3d要有舞台，一般将父元素舞台，在舞台上设置景深
+perspective  元素距离你的眼睛有多远
+rotateX()  正面推到
+rotateY()  侧面
+roteteZ()  平面中旋转
+
+translateZ(100px)  和眼睛的距离，超过景深会消失，因为移到了眼睛后方。
+
+backface-visibility:hidden;后面元素不可见。
+transform-style: preserve-3d; //保持3D
+
+
+原理：
+那些看上去很酷酷的CSS3 3D效果其实就颠来倒去那几个属性（本文提到的这几个），折腾来折腾去，这里这个效果显然也是如此。
+
+首先HTML结构，如下：
+
+舞台
+    容器
+        图片
+        图片
+        图片
+        ...
+对于舞台，很简单，加个视距，比方说800像素：
+
+ perspective: 800px;
+对于容器，很简单，加个3D视图声明，如下：
+
+transform-style: preserve-3d;
+
+3.animation
+之前学习的transition能够实现动画，不过这个动画是需要触发条件的，比如css改变、类名的改变、hover了。
+animation属性，可以让动画更加自由。
+
+//定义关键帧动画
+@-webkit-keyframes 动画名称{
+  0% {
+    transform: rotateX(300deg)
+  }
+  to {
+    transform: translateX(300px)
+  }
+}
+animation: 动画名称 持续时长 缓冲函数名 延迟时间 循环次数 是否折返 是否保持最终状态;
+animation: move 1s ease 0s infinite alternate forwards;
+animtion-play-state: paused;
+第1个参数：动画的名字
+第2个参数：动画的总时长，别忘了写s
+第3个参数：缓冲
+第4个参数：延迟时间，注意如果动画进行很多次，只有第一次开始前有延迟
+第5个参数：运动次数，要无限次写infinite
+第6个参数：是否来回运动，如果写alternate那么第偶数次将是时间轴的逆向
+第7个参数：forwards表示当运动结束之后让这个元素保留在原地
+
+
+
+
+
+
+
+
+
+
+
+
+参考网站：
+3d
+http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/
+2d
+http://www.zhangxinxu.com/wordpress/2010/11/css3-transitions-transforms-animation-introduction/

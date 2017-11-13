@@ -1,0 +1,8 @@
+原生页面卷动值：
+```
+var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+document.body.scrollTop = document.documentElement.scrollTop = 0;
+```
+
+jquery获取页面卷动值
+$(document).scrollTop

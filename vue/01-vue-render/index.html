@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js" charset="utf-8"></script>
+  <!-- View -->
+  <div id="app">
+    <ul>
+      <!-- v-model动态绑定属性，当输入框内容变化的时候，message属性的值会跟着变化 -->
+      <input v-model="message" type="text">
+      <!-- 通过v-on绑定事件处理函数 -->
+      <button v-on:click="reverseMessage">旋转message</button>
+      <!-- item相当于list中的每一项,list是一个数组，这里的item是对象 -->
+      <!-- <li v-for="item in list"> -->
+      <li v-for="(item, index) in list">
+        {{ index }} : {{ item.text }}
+      </li>
+      <!-- 响应式，我们可以动态的修改list这个数组,视图会自动更新 -->
+    </ul>
+    <!-- 当数据中的seen属性为true则将p标签插入到页面，否则会移除 -->
+    <p v-if="seen">你看不到我</p>
+    <!-- seen为true则显示，seen为false则display:none -->
+    <p v-show="seen">我可以display:none</p>
+    <!-- v-bind指令将model中的数据动态的绑定到属性中 -->
+    <span v-bind:title="message">
+      提示信息
+    </span>
+    <!-- 用插值的方式显示 -->
+    {{ message }}
+  </div>
+  <script>
+    // Model
+    let data = {
+      message: 'hello',
+      seen: true,
+      list: [
+        { text: 'html' },
+        { text: 'css' },
+        { text: 'js' },
+        { text: 'ajax' },
+        { text: 'nodejs' },
+        { text: 'vue' }
+      ]
+    }
+    // ViewModel
+    let app = new Vue({
+      el: '#app',
+      data,
+      methods: {
+        reverseMessage() {
+          // 方法中的this表示我们整个app实例
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    });
+    console.log(app.message);
+    // 响应式，当我们修改数据的时候，页面自动更新，我们只关注于数据，这个就是面向数据编程
+    app.message = 'hello vue';
+  </script>
+</body>
+</html>

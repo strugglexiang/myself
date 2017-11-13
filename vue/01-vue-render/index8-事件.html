@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js" charset="utf-8"></script>
+  <div id="app">
+      点击了 {{ counter }} 次
+      <!-- 绑定事件 -->
+      <button @click="counter++">+1</button>
+      <!-- 绑定事件处理函数 -->
+      <button @click="addCounter">++</button>
+      <!-- 绑定带参数的事件处理函数 -->
+      <button @click="add(3)">+3</button>
+      <!-- 绑定带参数的事件再带上event -->
+      <button @click="addWithEvent(5, $event)">+5</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        counter: 1
+      },
+      methods: {
+        // 如果没有参数，event事件自带
+        addCounter(event) {
+          this.counter++
+          console.log(event.target.tagName)
+        },
+        add(num) {
+          this.counter += num
+        },
+        // 如果已经有参数了，event事件需要在调用的地方手动指定
+        addWithEvent(num, event) {
+          this.counter += num
+          console.log(event.target.tagName)
+        }
+      }
+    })
+  </script>
+
+  <div id="app2">
+    <!-- 修饰符 .stop是阻止冒泡 -->
+    <div @click="doing">
+      父div <a @click.stop="doThis">阻止冒泡</a>
+      <form @submit.prevent="onSubmit">
+        <input type="submit" value="提交阻止默认行为">
+      </form>
+      <!-- 串联 -->
+      <a @click.stop.prevent="doThat">阻止默认行为和冒泡</a>
+      <!-- 只有修饰符 -->
+      <form @submit.prevent>
+        <input type="submit" value="提交阻止默认行为">
+      </form>
+      <!-- 使用事件捕获模式 -->
+      <div @click.capture="doThis"> 在捕获阶段执行 </div>
+      <!-- 只有点击自身才有效 -->
+      <div @click.self="doThat">
+        自身<div>子元素</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var vm2 = new Vue({
+      el: '#app2',
+      methods: {
+        doing() { console.log('父div doing') },
+        doThis() { console.log('do this') },
+        onSubmit() { console.log('do submit') },
+        doThat() { console.log('do that') }
+      }
+    })
+  </script>
+
+  <hr>
+  <div id="app3">
+    <!-- 键值修饰符 -->
+    <input @keyup.13="submit" value="回车提交">
+    <input @keyup.enter="submit" value="回车提交">
+    <input @keydown.tab.prevent="submit" value="tab">
+    <input @keyup.delete="submit" value="delte或退格">
+    <input @keyup.esc="submit" value="esc">
+    <input @keyup.space="submit" value="space">
+    <input @keyup.up="submit" value="up">
+    <input @keyup.down="submit" value="down">
+    <input @keyup.left="submit" value="left">
+    <input @keyup.right="submit" value="right">
+    <input @keydown.f1.prevent="submit" value="f1">
+    <input @keyup.alt.67="submit" value="alt+c">
+    <input @keyup.ctrl.67="submit" value="ctrl+c">
+    <input @keyup.ctrl.86="submit" value="ctrl+v">
+    <input @keyup.shift.67="submit" value="shift+c">
+  </div>
+  <script>
+    Vue.config.keyCodes.f1 = 112
+    var vm3 = new Vue({
+      el: '#app3',
+      methods: {
+        submit() {
+          console.log('触发表单提交');
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

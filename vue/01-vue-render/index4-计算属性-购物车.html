@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js" charset="utf-8"></script>
+  <div id="app">
+    杯子：<input type="number" v-model="priceA">
+    数量：<input type="number" v-model="numberA">
+    小计：{{ sumA }}
+    <hr>
+    被子：<input type="number" v-model="priceB">
+    数量：<input type="number" v-model="numberB">
+    小计：{{ sumB }}
+    <hr>
+    总价：{{ sumA + sumB }}
+  </div>
+  <script>
+    var vm = new Vue({
+      // 挂载
+      el: '#app',
+      // 存放所有的数据
+      data: {
+        priceA: 150,
+        numberA: 3,
+        priceB: 1,
+        numberB: 2
+      },
+      // 存放所有的计算属性,就是一个方法，不过使用的时候和属性一样
+      computed: {
+        sumA() {
+          return this.priceA * this.numberA;
+        },
+        sumB() {
+          return this.priceB * this.numberB;
+        }
+        // sum() {
+        //   return this.sumA + this.sumB;
+        // }
+      },
+      // 存放所有的方法
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

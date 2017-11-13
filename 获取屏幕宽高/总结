@@ -1,0 +1,17 @@
+1.原生
+当前文档可视区域的宽高
+document.documentElement.clientWidth
+document.documentElement.clientHeight
+
+body的宽高
+document.body.clientWidth;
+document.body.clientHeight;
+
+2.jquery
+当前可视区宽高
+$(window).height();
+$(window).width();
+
+当前文档的宽高
+$(document).width();
+$(document).height();

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery获取屏幕宽高</title>
+		<script src="jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			body{
+				
+				height: 1000px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//当前可视窗口的宽高
+			var a=$(window).width();
+			var b=$(window).height();
+//			console.log(a,b);
+			
+			//文档的宽高
+			var c=$(document).width();
+			var d=$(document).height();
+			console.log(c,d)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,132 @@
+.box{
+	width: 400px;
+	width: 950px;
+	height: 350px;
+	border: 1px solid #CCCCCC;
+	margin: auto;
+	margin-top: 20px;
+	position: relative;
+	overflow: hidden;
+}
+/*------------轮播图移动盒子-------------------------*/
+.mylunbomove{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.mylunbomove ul{
+	list-style: none;
+	width: 10000px;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.mylunbomove ul li{
+    height: 100%;
+    float: left;
+}
+
+/*----------这里有可能li后面的不是img而是a标签，要改就这里面加东西*/
+
+.mylunbomove ul li img{
+	width: 100%;
+	height: 100%;
+}
+
+/*---------------轮播图切换按钮---------------------------------*/
+.mylunboqiehuan{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.mylunboqiehuan-left,.mylunboqiehuan-right{
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: -15px;
+	opacity: 0.5;
+	filter: alpha(opacity==50);
+	color:white;
+	font-size: 20px;
+	cursor: pointer;
+	user-select:none;
+	background:red;
+	z-index: 100;
+}
+.mylunboqiehuan-left{
+	left: 10px;
+}
+.mylunboqiehuan-right{
+	right: 10px;
+}
+.mylunboqiehuan span:hover{
+	opacity: .8;
+}
+
+/*-----------轮播图bt按钮---------------------------------*/
+.mylunbobt{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+.mylunbobt ul{
+	list-style: none;	
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	
+
+}
+.mylunbobt ul li{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	cursor: pointer;
+}
+.mylunbobt ul li i{
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	user-select:none;
+}
+.mylunbobt ul li i span{
+	content: "";
+	display: inline-block;
+	width: 100%;
+	height: 3px;
+	background: gray;
+	user-select:none;
+	opacity: 0.5;
+}
+.mylunbobt ul li:hover span{
+	opacity: 1;
+	user-select:none;
+}
+.mylunbobt ul li span.lunbocurrent{
+	background:sandybrown;
+	opacity: 1;
+	user-select:none;
+}
+
+

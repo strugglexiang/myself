@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.granpa{
+				width: 500px;
+				height: 500px;
+				background: black;
+				margin: auto;
+			}
+			.parent{
+				width: 300px;
+				height: 500px;
+				background: red;
+				margin: auto;
+			}
+			.son{
+				width: 150px;
+				height: 500px;
+				background: yellow;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		 <div class="granpa">
+		 	 <div class="parent">
+		 	 	<div class="son">
+		 	 		
+		 	 	</div>
+		 	 </div>
+		 </div>
+		 
+		 <script type="text/javascript">
+		 	  var g=document.querySelector(".granpa");
+		 	  var p=document.querySelector(".parent")
+		 	   var s=document.querySelector(".son");
+		 	   /*
+		 	   g.onclick=()=>{
+		 	   	   console.log("点击爷爷")
+		 	   }
+		 	    p.onclick=()=>{
+		 	   	   console.log("点击父亲")
+		 	   }
+		 	     s.onclick=()=>{
+		 	   	   console.log("点击儿子")
+		 	   }
+		 	   */
+		 	  
+		 	  g.addEventListener("click",function(){
+		 	  		event.stopPropagation()
+		 	  	console.log("点击爷爷,b")},true);
+		 	  	g.addEventListener("click",function(){
+		 	  
+		 	  	console.log("点击爷爷,m")},false);
+		 </script>
+	</body>
+</html>

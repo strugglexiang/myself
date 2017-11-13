@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>三列布局</title>
+	<!--实现中间自适应两边固定宽度的三列布局-->
+  <style>
+	*{
+		margin:0;
+		padding:0
+	}
+	div{
+		height:300px;
+	}
+	.left{
+		width:200px;
+		float:left;
+		background:red;
+	}
+	.right{
+		width:150px;
+		float:right;
+		background:green;
+	}
+	.container{
+		margin: 0 150px 0 200px;
+		background:yellow;
+	}
+  </style>
+ </head>
+ <body>
+	<div>
+		<div class="left">百度新闻是包含海量资讯的新闻服务平台,真实反映每时每刻的新闻热点。您可以搜索新闻事件、热点话题、人物动态、产品资讯等,快速了解它们的最新进展。</div>
+		<div class="right">1</div>
+		<div class="container">百度新闻是包含海量资讯的新闻服务平台,真实反映每时每刻的新闻热点。您可以搜索新闻事件、热点话题、人物动态、产品资讯等,快速了解它们的最新进展。</div>
+	</div>
+	<div style="height:500px;"></div>
+ </body>
+<html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery返回顶部</title>
+		<script src="jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		     body{
+		     	height: 2000px;
+		     }
+			 button{
+			 	 position: fixed;
+			 	 right: 100px;
+			 	 bottom: 10px;
+			 	 display: none;
+			 }
+		</style>
+	</head>
+	<body>
+		<button>返回顶部</button>
+		<script type="text/javascript">
+			 $(window).scroll(()=>{
+			 	    if($(document).scrollTop()>500){
+			 	    	 $("button").show();
+			 	    }else{
+			 	    	$("button").hide();
+			 	    }
+			 })
+			 
+			 $("button").click(function(){
+			 	 $("body").animate({
+			 	 	"scrollTop":0
+			 	 },700)
+			 })
+		</script>
+	</body>
+</html>

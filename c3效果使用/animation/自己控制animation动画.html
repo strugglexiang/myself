@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>animation动画</title>
+		<style type="text/css">
+			div{
+				position: fixed;
+				width: 100px;
+				height: 100px;
+				background: red;
+				/*animation: change 5s linear 0s ;*/
+			}
+			@-webkit-keyframes change{
+				from{
+					left: 0px;
+					top: 0px;
+				    
+				}
+				to{
+					 left: 500px;
+					 top: 500px;
+					 background: blue;
+				}
+			}
+			
+			@-webkit-keyframes change1{
+				from{
+					 left: 500px;
+					 top: 500px;
+					 background: blue;
+				    
+				}
+				to{
+					left: 0px;
+					top: 0px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript">
+			document.querySelector("div").onclick=function(){
+				    this.style.animation="change 5s linear 0s";
+				    document.querySelector("div").onclick=null;
+			}
+			
+			document.querySelector("div").onclick=function(){
+				    this.style.animation="change1 5s linear 0s";
+				   
+			}
+		</script>
+	</body>
+</html>
