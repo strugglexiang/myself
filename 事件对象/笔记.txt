@@ -1,0 +1,60 @@
+8月30日
+自定义事件一：
+```
+var elem = document.querySelector('div');
+//创建一个基于Event类型的事件
+var eve = document.createEvent('Event');
+//给事件定义一个名字
+// initEvent(自定义事件名称，是否冒泡,true能冒泡，是否能被取消,false不能取消)
+eve.initEvent('build', true, true);
+//添加build事件
+//e.target 表示当前的元素
+elem.addEventListener('build', function (e) {
+  console.log(this);
+  console.log(e.target);
+}, false);
+
+var oSpan = document.querySelector('span');
+oSpan.onclick = function() {
+  elem.dispatchEvent(eve);
+}
+```
+
+自定义事件二：
+```
+//创建一个自定义事件,事件名称为kaiyu
+var eve = new Event('kaiyu');
+var elem = document.querySelector('div');
+var oSpan = document.querySelector('span');
+elem.addEventListener('kaiyu', function () {
+  console.log(this.innerText);
+});
+oSpan.onclick = function(){
+  elem.dispatchEvent(eve);
+}
+```
+自定义事件的调用，我们又称为分发，dispatch
+
+```
+//浏览器会向所有的事件方法中传递一个实际的事件对象，在方法中写一个 event接收
+oDom.onclick = function(event) {
+  event = event || window.event;
+  event.type //通用的事件类型
+  var target = event.target || event.srcElement; //事件目标,在冒泡中，依然是触发事件的那个元素
+
+  event.currentTarget //在冒泡中，当前的对象
+}
+
+阻止事件传播（包括捕获和冒泡阶段）及兼容处理：
+if (event.stopPropagation) {
+  event.stopPropagation();
+} else {
+  event.cancelBubble = true;
+}
+
+阻止默认行为：
+if (event.preventDefault) {
+  event.preventDefault();
+} else {
+  event.returnValue = false;
+}
