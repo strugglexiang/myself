@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-3.2.1.js" charset="utf-8"></script>
+  <title>Document</title>
+  <style media="screen">
+       *{
+         padding: 0px;
+         margin:0px;
+       }
+       html,body{
+          width:100%;
+          /*height: 100%;*/
+          /*background: red*/
+       }
+       .left{
+         box-sizing: border-box;
+         width: 20%;
+         height:100vh;
+         border-right:1px solid #ccc;
+         float: left;
+         /*background: red*/
+       }
+       .left>div{
+         position: fixed;
+       }
+       .right{
+         width:80%;
+         float: left;
+       }
+       #f1,#f2,#f3,#f4,#f5{
+           height:500px
+       }
+       #f1{
+          background: red
+       }
+       #f2{
+          background: yellow
+       }
+       #f3{
+          background: black
+       }
+       #f4{
+          background: green
+       }
+       #f5{
+          background: orange
+       }
+
+  </style>
+</head>
+<body>
+   <div class="box">
+        <div class="left">
+             <div>
+               <ul>
+                 <li><a href="#f1">区域1</a></li>
+                 <li><a href="#f2">区域2</a></li>
+                 <li><a href="#f3">区域3</a></li>
+                 <li><a href="#f4">区域4</a></li>
+                 <li><a href="#f5">区域5</a></li>
+               </ul>
+             </div>
+        </div>
+        <div class="right">
+            <div id="f1">1</div>
+            <div id="f2">2</div>
+            <div id="f3">3</div>
+            <div id="f4">4</div>
+            <div id="f5">5</div>
+        </div>
+   </div>
+   <script type="text/javascript">
+        $(".left a").click(function(){
+             // console.log(this)
+             if(event.preventDefault){
+                event.preventDefault();
+             }else{
+
+             }
+
+             var x=$(this.parentNode).index();
+             var h=$(".right div").eq(x).offset().top;
+             if($("html,body").is(":animated")){
+                $("html,body").stop(true,true)
+             }
+             $("html,body").animate({scrollTop:h},300,"linear")
+
+        })
+   </script>
+</body>
+</html>
