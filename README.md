@@ -6,3 +6,11 @@ rm -rf 目录名字
 touch .
 3.commonjs和nodejs预言帝
 https://www.cnblogs.com/fullhouse/archive/2011/07/15/2107416.html
+
+
+
+6.杜老师上课视屏百度网盘
+链接: https://pan.baidu.com/s/1slzBQUD 
+密码: yx3y
+链接确认：链接: https://pan.baidu.com/s/1slzBQUD 
+
