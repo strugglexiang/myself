@@ -10,9 +10,7 @@ touch .
 ```
 
 3. commonjs和nodejs预言帝
-```
 https://www.cnblogs.com/fullhouse/archive/2011/07/15/2107416.html
-```
 
 4. 学习资源(du)
 ```
